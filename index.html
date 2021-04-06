@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+    console.log("ejecuto")
+      var myHeaders = new Headers();
+      myHeaders.append(
+        "Cookie",
+        "__cfduid=d098537309461d6d9d7311e90f87b24271617130202; JSESSIONID=0538EEB798F0619F752FA57E57A0192A; fusionauth.locale=en_US"
+      );
+
+      var formdata = new FormData();
+      formdata.append("client_id", "2c54fc21-43b7-4c96-ba29-a4a66fd54342");
+      formdata.append("redirect_uri", "https://campus.adenu.edu.pa");
+      formdata.append("response_type", "code");
+      formdata.append("state", "iY3A4ZPnWt_MMtEtMIaKDbpjQ5BQFm0M2mDevG3UrVI");
+      formdata.append("timezone", "America/Argentina/Buenos_Aires");
+      formdata.append("loginId", "sebamaidana@gmail.com");
+      formdata.append("password", "aden12345");
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow",
+      };
+
+      fetch("https://fa.aden.org/oauth2/authorize", requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.log("error", error));
+        console.log("si si")
+    </script>
+  </body>
+</html>
